@@ -624,6 +624,7 @@ button {
   .section-hunting-and-outdoors .img-container a {
     right: 50px;
     font-size: 18px;
+    z-index: 10;
   }
   .section-hunting-and-outdoors__btn-container {
     position: absolute;
