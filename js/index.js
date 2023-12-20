@@ -9,11 +9,6 @@ new Swiper(".section-series-slider .swiper", {
     el: ".swiper-pagination",
     type: "progressbar",
   },
-  breapoints: {
-    1024: {
-      loop: true,
-    },
-  },
 });
 
 new Swiper(".section-signature-collaborations .swiper", {
@@ -71,6 +66,21 @@ refs.btnSwitchers.forEach((el) => {
           }
         }
         btnRef.classList.add("active");
+      }
+      if (e.target.closest(".section-banner-switch-js")) {
+        const seriesRefs = document.querySelectorAll(
+          ".section-banner-switch-js .img-container"
+        );
+        const btns = document.querySelectorAll(
+          ".section-banner-switch-js .btn-switcher-container button"
+        );
+        for (let i = 0; i < btns.length; i++) {
+          if (btns[i].classList.contains("active")) {
+            seriesRefs[i].classList.add("active");
+          } else {
+            seriesRefs[i].classList.remove("active");
+          }
+        }
       }
     }
   });

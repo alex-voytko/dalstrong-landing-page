@@ -22,6 +22,36 @@ button {
   background-color: transparent;
   border: none;
 }
+h2.section-title {
+  font-family: "Bunken Tech Sans SC Wide W01Bd";
+  font-size: 13px;
+  letter-spacing: 1px;
+  line-height: 23px;
+  text-transform: uppercase;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 10px;
+}
+@media screen and (min-width: 768px) {
+  h2.section-title {
+    font-size: 26px;
+    text-align: left;
+    padding-left: 40px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  h2.section-title {
+    font-size: 30px;
+  }
+}
+@media screen and (min-width: 1920px) {
+  h2.section-title {
+    padding-left: 98px;
+    padding-bottom: 20px;
+    font-size: 36px;
+    cursor: default;
+  }
+}
 .front-container,
 .back-container {
   position: absolute;
@@ -186,10 +216,12 @@ button {
   height: 30px;
   visibility: hidden;
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 768px) {
   .announcement-bar img {
     visibility: visible;
   }
+}
+@media screen and (min-width: 1024px) {
   .header .header__left-container,
   .header .header__right-container {
     width: 400px;
@@ -531,24 +563,18 @@ button {
 .section-hunting-and-outdoors {
   padding: 25px 0;
 }
-.section-hunting-and-outdoors h2.section-title {
-  font-family: "Bunken Tech Sans SC Wide W01Bd";
-  font-size: 13px;
-  letter-spacing: 1px;
-  line-height: 23px;
-  text-transform: uppercase;
-  color: #000000;
-  text-align: center;
-  margin-bottom: 10px;
-}
 .section-hunting-and-outdoors img {
   width: 100%;
 }
 .section-hunting-and-outdoors .img-container {
+  display: none;
   position: relative;
   width: inherit;
   height: fit-content;
   background-color: var(--bg-light-color);
+}
+.section-hunting-and-outdoors .img-container.active {
+  display: block;
 }
 .section-hunting-and-outdoors .img-container a {
   position: absolute;
@@ -603,11 +629,6 @@ button {
   background-color: var(--accent-bg-color);
 }
 @media screen and (min-width: 768px) {
-  .section-hunting-and-outdoors h2.section-title {
-    font-size: 26px;
-    text-align: left;
-    padding-left: 40px;
-  }
   .section-hunting-and-outdoors__btn-container {
     flex-direction: row;
     justify-content: center;
@@ -632,9 +653,6 @@ button {
     background-color: transparent;
     gap: 40px;
   }
-  .section-hunting-and-outdoors h2.section-title {
-    font-size: 30px;
-  }
 }
 @media screen and (min-width: 1920px) {
   .section-hunting-and-outdoors .img-container a,
@@ -643,12 +661,6 @@ button {
   }
   .section-hunting-and-outdoors__btn-container button {
     width: 270px;
-  }
-  .section-hunting-and-outdoors h2.section-title {
-    padding-left: 98px;
-    padding-bottom: 20px;
-    font-size: 36px;
-    cursor: default;
   }
 }
 
@@ -813,6 +825,55 @@ button {
   }
 }
 
+/* Section Collaborations */
+.section-collaborations .btn-switcher-container {
+  width: 100%;
+  background: #e7e7e7;
+  border-radius: 0;
+  border: none;
+  margin-left: 0;
+}
+@media screen and (max-width: 499px) {
+  .section-collaborations .btn-switcher-container {
+    display: flex;
+    justify-content: center;
+  }
+}
+.section-collaborations .btn-switcher-container button.active {
+  background-color: unset;
+}
+.section-collaborations .btn-switcher-container button > img:last-child {
+  display: none;
+}
+.section-collaborations .btn-switcher-container button > img:first-child {
+  display: inline-block;
+}
+.section-collaborations
+  .btn-switcher-container
+  button.active
+  > img:first-child {
+  display: none;
+}
+.section-collaborations .btn-switcher-container button.active > img:last-child {
+  display: inline-block;
+}
+.section-collaborations {
+  padding: 25px 0;
+}
+.section-collaborations img {
+  width: 100%;
+}
+.section-collaborations .collaboration-banner {
+  display: none;
+  position: relative;
+  width: inherit;
+  height: fit-content;
+  background-color: var(--bg-light-color);
+}
+.section-collaborations .collaboration-banner.active {
+  display: block;
+}
+
 /* Section Comparison banner */
 .section-comparison-banner {
   position: relative;
@@ -912,4 +973,7 @@ button {
 .footer {
   min-height: 200px;
   background-color: black;
+}
+.footer img {
+  width: 100%;
 }
