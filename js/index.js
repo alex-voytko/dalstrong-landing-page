@@ -11,7 +11,7 @@ new Swiper(".section-series-slider .swiper", {
   },
 });
 
-new Swiper(".section-signature-collaborations .swiper", {
+new Swiper(".section-signature .swiper", {
   slidesPerView: "auto",
   spaceBetween: 10,
   navigation: {
@@ -47,41 +47,30 @@ new Swiper(".section-collections-slider .swiper", {
   },
 });
 
-const refs = {
-  btnSwitchers: document.querySelectorAll(".js-switch"),
-  scrollDownBtn: document.getElementById("scroll-down-btn"),
-  signatureCollaborationSection: document.querySelector(
-    "section.section-signature-collaborations"
-  ),
-};
+const $btnSwitchers = $(".js-switch");
 
-refs.btnSwitchers.forEach((el) => {
-  el.addEventListener("click", (e) => {
-    const btnRef = e.target.closest("button");
-    if (btnRef) {
-      if (!btnRef.classList.contains("active")) {
-        for (const child of el.children) {
-          if (child.classList.contains("active")) {
-            child.classList.remove("active");
-          }
+$btnSwitchers.click(function (e) {
+  const $btnRef = $(e.target).closest("button");
+
+  if ($btnRef.length) {
+    const $btnContainerRef = $btnRef.closest(".js-switch");
+    if (!$btnRef.hasClass("active")) {
+      $btnContainerRef.children().each(function (_, el) {
+        if ($(el).hasClass("active")) {
+          $(el).removeClass("active");
         }
-        btnRef.classList.add("active");
-      }
-      if (e.target.closest(".section-banner-switch-js")) {
-        const seriesRefs = document.querySelectorAll(
-          ".section-banner-switch-js .img-container"
-        );
-        const btns = document.querySelectorAll(
-          ".section-banner-switch-js .btn-switcher-container button"
-        );
-        for (let i = 0; i < btns.length; i++) {
-          if (btns[i].classList.contains("active")) {
-            seriesRefs[i].classList.add("active");
-          } else {
-            seriesRefs[i].classList.remove("active");
-          }
-        }
-      }
+      });
+      $btnRef.addClass("active");
     }
-  });
+    if ($(e.target).closest(".section-banner-switch-js").length) {
+      const $seriesRefs = $(".section-banner-switch-js .img-container");
+      $btnContainerRef.children().each(function (index, el) {
+        if ($(el).hasClass("active")) {
+          $seriesRefs.eq(index).addClass("active");
+        } else {
+          $seriesRefs.eq(index).removeClass("active");
+        }
+      });
+    }
+  }
 });
