@@ -62,8 +62,13 @@ $btnSwitchers.click(function (e) {
       });
       $btnRef.addClass("active");
     }
-    if ($(e.target).closest(".section-banner-switch-js").length) {
-      const $seriesRefs = $(".section-banner-switch-js .img-container");
+
+    const $closestBannerSwitchContainer = $(e.target).closest(
+      ".section-banner-switch-js"
+    );
+    if ($closestBannerSwitchContainer.length) {
+      const $seriesRefs = $closestBannerSwitchContainer.find(".img-container");
+
       $btnContainerRef.children().each(function (index, el) {
         if ($(el).hasClass("active")) {
           $seriesRefs.eq(index).addClass("active");
